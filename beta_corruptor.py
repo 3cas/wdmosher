@@ -26,8 +26,6 @@ def find_real_data(data: bytes) -> tuple:
     largest_block_first = None
     largest_block_last = None
 
-    # cat += bytes(chr(7), "UTF-8")
-
     for pos in range(len(data)):
         dec = data[pos]
 
@@ -105,7 +103,6 @@ def replace_position(data: bytes, start_position: int, fill, skip_fail: bool = F
 def replace_position_random(data: bytes, fill) -> bytes:
     fill = fill_to_bytes(fill)
     return replace_position(data, random.randint(0, len(data)-len(fill)), fill)
-
 
 def main():
     if FILE:
