@@ -70,7 +70,7 @@ def find_real_data(data: bytes) -> tuple:
 
     if largest_block_first is not None:
         preview = " ... ".join([" ".join([simple_hex(data[position]) for position in range(*do_range)]) for do_range in [(largest_block_first, largest_block_first+5), (largest_block_last-4, largest_block_last+1)]])
-        print(f"\nDone! The largest block is from position {largest_block_first} to position {largest_block_last} and looks like {preview}")
+        print(f"Done! The largest block is from position {largest_block_first} to position {largest_block_last} and looks like {preview}")
         return largest_block_first, largest_block_last
 
     else:
@@ -134,7 +134,7 @@ def main():
 
 def test_distortions(real_data: bytes) -> bytes:
     for _ in range(100):
-        real_data = replace_position_random(real_data, "doge")
+        real_data = replace_position_random(real_data, chr(random.randint(0, 255)))
 
     return real_data
 
